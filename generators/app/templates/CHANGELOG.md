@@ -1,5 +1,5 @@
-# HEAD
+### HEAD
 
-### v0.0.0 (MM/DD/YYYY)
+### 0.0.0 (Month DD, YYYY)
 
 * Initial public release.
