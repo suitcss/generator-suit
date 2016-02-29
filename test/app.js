@@ -40,6 +40,7 @@ describe('generator-suit:app', function () {
           ['lib/my-component.css', '.MyComponent {']
         ]);
         assert.jsonFileContent('package.json', {
+          name: 'suitcss-components-my-component',
           description: 'A SUIT component for testing'
         });
         done();
@@ -57,6 +58,7 @@ describe('generator-suit:app', function () {
           ['lib/my-utility.css', '.u-myUtility {']
         ]);
         assert.jsonFileContent('package.json', {
+          name: 'suitcss-utils-my-utility',
           description: 'A SUIT utility for testing'
         });
         done();

@@ -1,6 +1,6 @@
 # SUIT <%= moduleCssName %>
 
-[![Build Status](https://secure.travis-ci.org/<%= moduleAuthorGithubUsername %>/<%= modulePackageName %>.png?branch=master)](http://travis-ci.org/<%= moduleAuthorGithubUsername %>/<%= modulePackageName %>)
+[![Build Status](https://secure.travis-ci.org/<%= moduleAuthorGithubUsername %>/<%= modulePackageName %>.svg?branch=master)](http://travis-ci.org/<%= moduleAuthorGithubUsername %>/<%= modulePackageName %>)
 
 <%= moduleDescription %>
 
@@ -9,7 +9,7 @@ Read more about [SUIT's design principles](https://github.com/suitcss/suit/).
 ## Installation
 
 * [npm](https://npmjs.org/): `npm install suitcss-<%= modulePackageName %>`
-* Download: [zip](https://github.com/<%= moduleAuthorGithubUsername %>/<%= modulePackageName %>/zipball/master)
+* Download: [releases](https://github.com/<%= moduleAuthorGithubUsername %>/<%= modulePackageName %>/releases/latest)
 
 ## Available classes
 

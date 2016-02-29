@@ -58,19 +58,23 @@ module.exports = yeoman.generators.Base.extend({
         moduleAuthorGithubUsername: props.moduleAuthorGithubUsername,
         moduleName: this.moduleName,
         moduleFileName: this.moduleName + '.css',
-        moduleType: props.moduleType,
-        modulePackageName: [
-          props.moduleType,
-          this.moduleName
-        ].join('-')
+        moduleType: props.moduleType
       };
 
       if (props.moduleType === 'utility') {
         // Utilities
         this.props.moduleCssName = 'u-' + toCamelCase(this.moduleName);
+        this.props.modulePackageName = [
+          'utils',
+          this.moduleName
+        ].join('-');
       } else {
         // Components
         this.props.moduleCssName = toPascalCase(this.moduleName);
+        this.props.modulePackageName = [
+          'components',
+          this.moduleName
+        ].join('-');
       }
 
       // Description
@@ -117,6 +121,8 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   install: function () {
-    this.installDependencies();
+    this.installDependencies({
+      bower: false
+    });
   }
 });
