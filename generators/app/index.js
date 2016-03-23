@@ -54,6 +54,7 @@ module.exports = yeoman.generators.Base.extend({
     ];
 
     this.prompt(prompts, function (props) {
+      // Common props
       this.props = {
         moduleAuthorGithubUsername: props.moduleAuthorGithubUsername,
         moduleName: this.moduleName,
@@ -61,33 +62,24 @@ module.exports = yeoman.generators.Base.extend({
         moduleType: props.moduleType
       };
 
+      // Utilities
       if (props.moduleType === 'utility') {
-        // Utilities
         this.props.moduleCssName = 'u-' + toCamelCase(this.moduleName);
-        this.props.modulePackageName = [
-          'utils',
-          this.moduleName
-        ].join('-');
-      } else {
-        // Components
-        this.props.moduleCssName = toPascalCase(this.moduleName);
-        this.props.modulePackageName = [
-          'components',
-          this.moduleName
-        ].join('-');
+        this.props.modulePackageName = 'utils-' + this.moduleName;
+        this.props.moduleDescription = props.moduleDescription ?
+          props.moduleDescription + ' utilities for SUIT CSS':
+          '';
+
+        return done();
       }
 
-      // Description
-      if (props.moduleDescription) {
-        this.props.moduleDescription = [
-          'A SUIT',
-          props.moduleType,
-          'for',
-          props.moduleDescription
-        ].join(' ');
-      } else {
-        this.props.moduleDescription = '';
-      }
+      // Components
+      this.props.moduleCssName = toPascalCase(this.moduleName);
+      this.props.modulePackageName = 'components-' + this.moduleName;
+      this.props.moduleDescription = props.moduleDescription ?
+        'A SUIT component for ' + props.moduleDescription :
+        '';
+
       done();
     }.bind(this));
   },
@@ -114,10 +106,19 @@ module.exports = yeoman.generators.Base.extend({
       this.destinationPath('.stylelintrc')
     );
 
-    this.fs.move(
-      this.destinationPath('lib/component.css'),
-      this.destinationPath('lib/' + this.props.moduleFileName)
-    );
+    if (this.props.moduleType === 'utility') {
+      this.fs.move(
+        this.destinationPath('lib/utilities.css'),
+        this.destinationPath('lib/' + this.props.moduleFileName)
+      );
+      this.fs.delete(this.destinationPath('lib/component.css'));
+    } else {
+      this.fs.move(
+        this.destinationPath('lib/component.css'),
+        this.destinationPath('lib/' + this.props.moduleFileName)
+      );
+      this.fs.delete(this.destinationPath('lib/utilities.css'));
+    }
   },
 
   install: function () {

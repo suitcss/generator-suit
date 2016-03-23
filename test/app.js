@@ -35,6 +35,7 @@ describe('generator-suit:app', function () {
       .withPrompts({moduleType: 'component', moduleDescription: 'testing'})
       .on('end', function () {
         assert.file('lib/my-component.css');
+        assert.noFile('lib/utilities.css');
         assert.fileContent([
           ['lib/my-component.css', '/** @define MyComponent */'],
           ['lib/my-component.css', '.MyComponent {']
@@ -47,19 +48,20 @@ describe('generator-suit:app', function () {
       });
   });
 
-  it('generates a valid utility', function (done) {
+  it('generates valid utilities', function (done) {
     helpers.run(path.join(__dirname, '../generators/app'))
-      .withArguments(['my-utility'])
+      .withArguments(['my-utilities'])
       .withPrompts({moduleType: 'utility', moduleDescription: 'testing'})
       .on('end', function () {
-        assert.file('lib/my-utility.css');
+        assert.file('lib/my-utilities.css');
+        assert.noFile('lib/component.css');
         assert.fileContent([
-          ['lib/my-utility.css', '/** @define u-myUtility */'],
-          ['lib/my-utility.css', '.u-myUtility {']
+          ['lib/my-utilities.css', '/** @define utilities */'],
+          ['lib/my-utilities.css', '.u-myUtilities {']
         ]);
         assert.jsonFileContent('package.json', {
-          name: 'suitcss-utils-my-utility',
-          description: 'A SUIT utility for testing'
+          name: 'suitcss-utils-my-utilities',
+          description: 'testing utilities for SUIT CSS'
         });
         done();
       });
