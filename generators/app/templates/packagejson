@@ -3,6 +3,7 @@
   "description": "<%= moduleDescription %>",
   "version": "0.1.0",
   "license": "MIT",
+  "author": "<%= moduleAuthorName %>",
   "style": "index.css",
   "files": [
     "index.css",
@@ -30,7 +31,7 @@
   "keywords": [
     "browser",
     "css-components",
-    "<%= modulePackageName %>",
+    "<%= moduleName %>",
     "suitcss",
     "style"
   ]
