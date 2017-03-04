@@ -1,26 +1,24 @@
 {
-  "name": "generator-suit",
-  "version": "1.0.2",
-  "description": "Generator for scaffolding out a SUIT component or utility",
+  "name": "generator-particle",
+  "version": "0.1.0-alpha",
+  "description": "Generator for scaffolding out a PARTICLE component or utility (based on generator-suit)",
   "keywords": [
     "yeoman-generator",
     "generator",
-    "suit",
-    "web",
-    "yeoman-generator",
+    "particle",
     "css component"
   ],
-  "homepage": "https://github.com/suitcss/generator-suit#readme",
-  "bugs": "https://github.com/suitcss/generator-suit/labels/bug",
+  "homepage": "https://github.com/particlecss/generator-particle#readme",
+  "bugs": "https://github.com/particlecss/generator-particle/labels/bug",
   "license": "MIT",
-  "author": "Giuseppe Gurgone",
+  "author": "smuemd",
   "files": [
     "generators"
   ],
   "main": "generators/app/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/suitcss/generator-suit.git"
+    "url": "https://github.com/particlecss/generator-particle.git"
   },
   "scripts": {
     "prepublish": "nsp check",
