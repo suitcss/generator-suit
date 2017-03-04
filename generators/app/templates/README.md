@@ -1,6 +1,6 @@
 # PARTICLE <%= moduleCssName %>
 
-[![Build Status](https://secure.travis-ci.org/<%= moduleAuthorGithubUsername %>/<%= moduleRepoName %>.svg?branch=master)](http://travis-ci.org/<%= moduleAuthorGithubUsername %>/<%= moduleRepoName %>)
+[![Build Status](https://secure.travis-ci.org/<%= moduleAuthorGithubUsername %>/<%= moduleRepositoryName %>.svg?branch=master)](http://travis-ci.org/<%= moduleAuthorGithubUsername %>/<%= moduleRepositoryName %>)
 
 <%= moduleDescription %>
 
@@ -9,7 +9,7 @@ Read more about [PARTICLE's design principles](https://github.com/particlecss/pa
 ## Installation
 
 * [npm](https://npmjs.org/): `npm install <%= modulePackageName %>`
-* Download: [releases](https://github.com/<%= moduleAuthorGithubUsername %>/<%= moduleRepoName %>/releases/latest)
+* Download: [releases](https://github.com/<%= moduleAuthorGithubUsername %>/<%= moduleRepositoryName %>/releases/latest)
 
 ## Available classes
 
