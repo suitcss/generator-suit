@@ -1,16 +1,15 @@
 {
   "name": "<%= modulePackageName %>",
-  "version": "0.1.0",
+  "version": "0.1.0-alpha",
   "description": "<%= moduleDescription %>",
   "keywords": [
     "browser",
     "css-components",
     "<%= modulePackageName %>",
-    "suitcss",
     "style"
   ],
-  "homepage": "https://github.com/<%= moduleAuthorGithubUsername %>/<%= modulePackageName %>#readme",
-  "bugs": "https://github.com/<%= moduleAuthorGithubUsername %>/<%= modulePackageName %>/labels/bug",
+  "homepage": "https://github.com/<%= moduleAuthorGithubUsername %>/<%= moduleRepositoryName %><% if (monorepo === true) { %><%= pathToModule %><% } %>#readme",
+  "bugs": "https://github.com/<%= moduleAuthorGithubUsername %>/<%= moduleRepositoryName %>/labels/bug",
   "license": "MIT",
   "author": "<%= moduleAuthorName %>",
   "files": [
@@ -21,7 +20,7 @@
   "style": "index.css",
   "repository": {
     "type": "git",
-    "url": "git://github.com/<%= moduleAuthorGithubUsername %>/<%= modulePackageName %>.git"
+    "url": "git://github.com/<%= moduleAuthorGithubUsername %>/<%= moduleRepositoryName %>.git"
   },
   "scripts": {
     "build": "npm run setup && npm run preprocess",

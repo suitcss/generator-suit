@@ -1,15 +1,15 @@
-# SUIT <%= moduleCssName %>
+# PARTICLE <%= moduleCssName %>
 
-[![Build Status](https://secure.travis-ci.org/<%= moduleAuthorGithubUsername %>/<%= modulePackageName %>.svg?branch=master)](http://travis-ci.org/<%= moduleAuthorGithubUsername %>/<%= modulePackageName %>)
+[![Build Status](https://secure.travis-ci.org/<%= moduleAuthorGithubUsername %>/<%= moduleRepositoryName %>.svg?branch=master)](http://travis-ci.org/<%= moduleAuthorGithubUsername %>/<%= moduleRepositoryName %>)
 
 <%= moduleDescription %>
 
-Read more about [SUIT's design principles](https://github.com/suitcss/suit/).
+Read more about [PARTICLE's design principles](https://github.com/particlecss/particle/).
 
 ## Installation
 
 * [npm](https://npmjs.org/): `npm install <%= modulePackageName %>`
-* Download: [releases](https://github.com/<%= moduleAuthorGithubUsername %>/<%= modulePackageName %>/releases/latest)
+* Download: [releases](https://github.com/<%= moduleAuthorGithubUsername %>/<%= moduleRepositoryName %>/releases/latest)
 
 ## Available classes
 
