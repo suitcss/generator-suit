@@ -1,4 +1,4 @@
-/* global describe:true, beforeEach:true, it:true */
+/* global describe:true, it:true */ // beforeEach:true,
 
 var path = require('path')
 var assert = require('yeoman-assert')
@@ -61,7 +61,7 @@ describe('generator-particle:app', function () {
         ])
         assert.jsonFileContent('package.json', {
           name: 'particlecss-utils-my-utilities',
-          description: 'testing utilities for particle CSS'
+          description: 'testing utilities for PARTICLE CSS'
         })
         done()
       })
