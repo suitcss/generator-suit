@@ -78,7 +78,6 @@ module.exports = yeoman.generators.Base.extend({
       // Common props
       this.props = {
         moduleAuthorGithubUsername: props.moduleAuthorGithubUsername,
-        monorepo: props.monorepo,
         moduleAuthorName: props.moduleAuthorName,
         moduleName: this.moduleName,
         moduleFileName: this.moduleName + '.css',
@@ -86,17 +85,12 @@ module.exports = yeoman.generators.Base.extend({
         moduleYear: new Date().getFullYear()
       }
 
-      // Monorepo
-      if (props.monorepo) {
-        this.props.moduleAuthorGithubUsername = this.props.moduleAuthorGithubUsername + '/' + props.moduleMonorepoName
-      }
-
       // Utilities
       if (props.moduleType === 'utility') {
         this.props.moduleCssName = 'u-' + toCamelCase(this.moduleName)
         this.props.modulePackageName = 'particlecss-utils-' + this.moduleName
         this.props.moduleDescription = props.moduleDescription ? props.moduleDescription + ' utilities for PARTICLE CSS' : ''
-        this.moduleRepoName = this.props.monorepo ? props.moduleMonorepoName : this.props.modulePackageName
+        this.props.moduleRepoName = (props.monorepo === true) ? props.moduleMonorepoName : this.props.modulePackageName
         return done()
       }
 
@@ -104,7 +98,7 @@ module.exports = yeoman.generators.Base.extend({
       this.props.moduleCssName = toPascalCase(this.moduleName)
       this.props.modulePackageName = 'particlecss-components-' + this.moduleName
       this.props.moduleDescription = props.moduleDescription ? 'A particle component for ' + props.moduleDescription : ''
-      this.moduleRepoName = this.props.monorepo ? props.moduleMonorepoName : this.props.modulePackageName
+      this.props.moduleRepoName = (props.monorepo === true) ? props.moduleMonorepoName : this.props.modulePackageName
       done()
     }.bind(this))
   },
