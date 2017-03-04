@@ -1,26 +1,26 @@
-var chalk = require('chalk');
-var toCamelCase = require('lodash.camelcase');
-var yeoman = require('yeoman-generator');
-var yosay = require('yosay');
+var chalk = require('chalk')
+var toCamelCase = require('lodash.camelcase')
+var yeoman = require('yeoman-generator')
+var yosay = require('yosay')
 
-function toPascalCase(name) {
-  var a = toCamelCase(name).split('');
-  a.splice(0, 1, a[0].toUpperCase());
-  return a.join('');
+function toPascalCase (name) {
+  var a = toCamelCase(name).split('')
+  a.splice(0, 1, a[0].toUpperCase())
+  return a.join('')
 }
 
 module.exports = yeoman.generators.Base.extend({
   constructor: function () {
-    yeoman.generators.Base.apply(this, arguments);
-    this.argument('moduleName', {type: String, required: true});
+    yeoman.generators.Base.apply(this, arguments)
+    this.argument('moduleName', {type: String, required: true})
   },
 
   prompting: function () {
-    var done = this.async();
+    var done = this.async()
 
     this.log(yosay(
-      'Welcome to the wicked ' + chalk.red('generator-suit') + ' generator!'
-    ));
+      'Welcome to the wicked ' + chalk.red('generator-particle') + ' generator!'
+    ))
 
     var prompts = [
       {
@@ -41,7 +41,7 @@ module.exports = yeoman.generators.Base.extend({
       },
       {
         type: 'input',
-        message: 'A SUIT component/utility for... (complete)',
+        message: 'A particle component/utility for... (complete)',
         name: 'moduleDescription',
         default: ''
       },
@@ -49,7 +49,7 @@ module.exports = yeoman.generators.Base.extend({
         type: 'input',
         message: 'Your github username',
         name: 'moduleAuthorGithubUsername',
-        default: 'suitcss'
+        default: 'particlecss'
       },
       {
         type: 'input',
@@ -57,7 +57,7 @@ module.exports = yeoman.generators.Base.extend({
         name: 'moduleAuthorName',
         default: ''
       }
-    ];
+    ]
 
     this.prompt(prompts, function (props) {
       // Common props
@@ -68,28 +68,22 @@ module.exports = yeoman.generators.Base.extend({
         moduleFileName: this.moduleName + '.css',
         moduleType: props.moduleType,
         moduleYear: new Date().getFullYear()
-      };
+      }
 
       // Utilities
       if (props.moduleType === 'utility') {
-        this.props.moduleCssName = 'u-' + toCamelCase(this.moduleName);
-        this.props.modulePackageName = 'suitcss-utils-' + this.moduleName;
-        this.props.moduleDescription = props.moduleDescription ?
-          props.moduleDescription + ' utilities for SUIT CSS':
-          '';
-
-        return done();
+        this.props.moduleCssName = 'u-' + toCamelCase(this.moduleName)
+        this.props.modulePackageName = 'particlecss-utils-' + this.moduleName
+        this.props.moduleDescription = props.moduleDescription ? props.moduleDescription + ' utilities for PARTICLE CSS' : ''
+        return done()
       }
 
       // Components
-      this.props.moduleCssName = toPascalCase(this.moduleName);
-      this.props.modulePackageName = 'suitcss-components-' + this.moduleName;
-      this.props.moduleDescription = props.moduleDescription ?
-        'A SUIT component for ' + props.moduleDescription :
-        '';
-
-      done();
-    }.bind(this));
+      this.props.moduleCssName = toPascalCase(this.moduleName)
+      this.props.modulePackageName = 'particlecss-components-' + this.moduleName
+      this.props.moduleDescription = props.moduleDescription ? 'A particle component for ' + props.moduleDescription : ''
+      done()
+    }.bind(this))
   },
 
   writing: function () {
@@ -97,46 +91,46 @@ module.exports = yeoman.generators.Base.extend({
       this.templatePath('**/*'),
       this.destinationPath(),
       this.props
-    );
+    )
 
     this.fs.move(
       this.destinationPath('packagejson'),
       this.destinationPath('package.json')
-    );
+    )
 
     this.fs.move(
       this.destinationPath('gitignore'),
       this.destinationPath('.gitignore')
-    );
+    )
 
     this.fs.move(
       this.destinationPath('travis.yml'),
       this.destinationPath('.travis.yml')
-    );
+    )
 
     this.fs.move(
       this.destinationPath('stylelintrc'),
       this.destinationPath('.stylelintrc')
-    );
+    )
 
     if (this.props.moduleType === 'utility') {
       this.fs.move(
         this.destinationPath('lib/utilities.css'),
         this.destinationPath('lib/' + this.props.moduleFileName)
-      );
-      this.fs.delete(this.destinationPath('lib/component.css'));
+      )
+      this.fs.delete(this.destinationPath('lib/component.css'))
     } else {
       this.fs.move(
         this.destinationPath('lib/component.css'),
         this.destinationPath('lib/' + this.props.moduleFileName)
-      );
-      this.fs.delete(this.destinationPath('lib/utilities.css'));
+      )
+      this.fs.delete(this.destinationPath('lib/utilities.css'))
     }
   },
 
   install: function () {
     this.installDependencies({
       bower: false
-    });
+    })
   }
-});
+})
