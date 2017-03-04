@@ -1,12 +1,11 @@
 {
   "name": "<%= modulePackageName %>",
-  "version": "0.1.0",
+  "version": "0.1.0-alpha",
   "description": "<%= moduleDescription %>",
   "keywords": [
     "browser",
     "css-components",
     "<%= modulePackageName %>",
-    "suitcss",
     "style"
   ],
   "homepage": "https://github.com/<%= moduleAuthorGithubUsername %>/<%= modulePackageName %>#readme",

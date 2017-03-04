@@ -1,10 +1,10 @@
-# SUIT <%= moduleCssName %>
+# PARTICLE <%= moduleCssName %>
 
 [![Build Status](https://secure.travis-ci.org/<%= moduleAuthorGithubUsername %>/<%= modulePackageName %>.svg?branch=master)](http://travis-ci.org/<%= moduleAuthorGithubUsername %>/<%= modulePackageName %>)
 
 <%= moduleDescription %>
 
-Read more about [SUIT's design principles](https://github.com/suitcss/suit/).
+Read more about [PARTICLE's design principles](https://github.com/particlecss/particle/).
 
 ## Installation
 
