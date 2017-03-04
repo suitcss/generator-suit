@@ -8,8 +8,8 @@
     "<%= modulePackageName %>",
     "style"
   ],
-  "homepage": "https://github.com/<%= moduleAuthorGithubUsername %>/<%= modulePackageName %>#readme",
-  "bugs": "https://github.com/<%= moduleAuthorGithubUsername %>/<%= modulePackageName %>/labels/bug",
+  "homepage": "https://github.com/<%= moduleAuthorGithubUsername %>/<%= moduleRepoName %>#readme",
+  "bugs": "https://github.com/<%= moduleAuthorGithubUsername %>/<%= moduleRepoName %>/labels/bug",
   "license": "MIT",
   "author": "<%= moduleAuthorName %>",
   "files": [
@@ -20,7 +20,7 @@
   "style": "index.css",
   "repository": {
     "type": "git",
-    "url": "git://github.com/<%= moduleAuthorGithubUsername %>/<%= modulePackageName %>.git"
+    "url": "git://github.com/<%= moduleAuthorGithubUsername %>/<%= moduleRepoName %>.git"
   },
   "scripts": {
     "build": "npm run setup && npm run preprocess",
