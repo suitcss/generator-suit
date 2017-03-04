@@ -42,7 +42,30 @@ describe('generator-particle:app', function () {
         ])
         assert.jsonFileContent('package.json', {
           name: 'particlecss-components-my-component',
-          description: 'A particle component for testing'
+          description: 'A particle component for testing',
+          homepage: 'https://github.com/particlecss/particle/packages/components-my-component#readme',
+          bugs: 'https://github.com/particlecss/particle/labels/bug',
+          repository: {
+            type: 'git',
+            url: 'git://github.com/particlecss/particle.git'
+          }
+        })
+        done()
+      })
+  })
+
+  it('also generates valid multirepo component', function (done) {
+    helpers.run(path.join(__dirname, '../generators/app'))
+      .withArguments(['my-component'])
+      .withPrompts({moduleType: 'component', moduleDescription: 'testing', monorepo: false})
+      .on('end', function () {
+        assert.jsonFileContent('package.json', {
+          name: 'particlecss-components-my-component',
+          homepage: 'https://github.com/particlecss/components-my-component#readme',
+          repository: {
+            type: 'git',
+            url: 'git://github.com/particlecss/components-my-component.git'
+          }
         })
         done()
       })
