@@ -41,6 +41,18 @@ To generate a build:
 npm run build
 ```
 
+Check for conformance errors with [postcss-bem-linter](https://github.com/postcss/postcss-bem-linter) and [stylelint](http://stylelint.io/)
+
+```
+npm test
+```
+
+To watch the files for making changes to test:
+
+```
+npm run watch
+```
+
 To generate the testing build.
 
 ```
@@ -48,18 +60,6 @@ npm run build-test
 ```
 
 Basic visual tests are in `test/index.html`.
-
-To pre-process:
-
-```
-npm run preprocess
-```
-
-To pre-process the tests:
-
-```
-npm run preprocess-test
-```
 
 ## Browser support
 
