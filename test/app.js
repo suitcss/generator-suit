@@ -12,7 +12,6 @@ describe('generator-suit:app', function () {
       .on('end', function () {
         assert.file([
           '.gitignore',
-          '.stylelintrc',
           '.travis.yml',
           'CHANGELOG.md',
           'index.css',
@@ -20,7 +19,6 @@ describe('generator-suit:app', function () {
           'package.json',
           'README.md',
           'lib/my-component.css',
-          'test/config.json',
           'test/index.html',
           'test/test.css'
         ]);
