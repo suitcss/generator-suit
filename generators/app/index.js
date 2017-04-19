@@ -114,11 +114,6 @@ module.exports = yeoman.generators.Base.extend({
       this.destinationPath('.travis.yml')
     );
 
-    this.fs.move(
-      this.destinationPath('stylelintrc'),
-      this.destinationPath('.stylelintrc')
-    );
-
     if (this.props.moduleType === 'utility') {
       this.fs.move(
         this.destinationPath('lib/utilities.css'),
